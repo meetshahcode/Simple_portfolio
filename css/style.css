@@ -23,7 +23,7 @@
   --surface-container-low-light: hsl(278, 44%, 96%);
   --surface-container-light: hsl(276, 38%, 95%);
   --surface-bright-light: hsl(293, 100%, 98%);
-  --primary-light: hsl(256, 34%, 48%);
+  --primary-light: hsl(256, 61%, 43%);
   --on-primary-light: hsl(0, 0%, 100%);
   --outline-light: hsl(270, 4%, 47%);
   --outline-variant-light: hsl(270, 11%, 79%);
@@ -348,6 +348,10 @@ body {
   object-fit: cover;
 } 
 
+.tab-content:not(.active) {display: none;}
+
+section-title {margin-block-end: 16px;}
+
 /*-----------------------------------*\
     #COMPONENT
   \*-----------------------------------*/
@@ -365,6 +369,53 @@ body {
 /**
   * TAB
   */
+
+  .primary-tab {
+    background-color: var(--background);
+    margin-block-start: 24px;
+    margin-inline: 16px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    border-block-end: 1px solid var(--outline-variant);
+  }
+
+  .tab-btn {
+    height: 48px;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    --state-layer-bg : var(--on-surface-variant);
+
+  }
+
+  .tab-btn.active {
+    color: var(--primary);
+    --state-layer-bg : var(--primary);
+  }
+
+  .tab-text {
+    position: relative;
+    height: 48px;
+  }
+
+  .tab-text::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background-color: var(--primary);
+    opacity: 0;;
+  }
+
+  .tab-btn.active .tab-text::after{
+    opacity: 1;
+  }
 
 /**
   * CHIP
@@ -388,6 +439,26 @@ body {
 /**
   * CARD
   */
+
+  .card {
+    background-color: var(--surface-container-low);
+    border-radius: var(--shape-corner-medium);
+    padding: 16px;
+    --state-layer-bg: var(--on-surface-variant)
+  }
+   .card-banner {
+    border-radius: var(--shape-corner-medium);
+   }
+
+   .card-content {
+    margin: 4px;
+    display: grid;
+    gap: 4px;
+   }
+
+   .card-subtitlle {
+    color: var(--on-surface-variant);
+   }
 
 /**
   * INPUT FIELD
@@ -485,13 +556,80 @@ body {
     #ABOUT CARD
   \*-----------------------------------*/
 
+  .about-card {
+    background-color: var(--surface-container-low);
+    color: var(--on-surface-variant);
+    margin-inline: 16px;
+    padding: 16px;
+    margin-block-start: 24px;
+    border-radius: var(--shape-corner-large);
+  }
+
+  .about-card .card-title {
+    color: var(--on-surface);
+  }
+
+  .about-card .card-text {
+    margin-block: 12px;
+    padding-block: 12px;
+    border-block: 1px solid var(--outline-variant);
+  }
+
+  .about-list {
+    display: flex;
+    gap: 12px;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
 /*-----------------------------------*\
     #PROJECT
   \*-----------------------------------*/
 
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 12px;
+  }
 /*-----------------------------------*\
     #RESUME
   \*-----------------------------------*/
+
+  .resume-tab .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 24px;
+    margin-block-end: 28px;
+  }
+
+  .resume-card {
+    display: grid;
+    gap: 4px;
+  }
+
+  .resume-card .card-subtitlle { color:  var(--primary);}
+  .resume-card .card-text { color:  var(--on-surface-variant);}
+  .resume-bottom-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  } 
+
+  .resume-bottom-item {
+    background-color: var(--surface-container);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: var(--shape-corner-small);
+  }
+
+  .resume-bottom-item .icon {
+    height: 28px;
+  }
 
 /*-----------------------------------*\
     #CONTACT

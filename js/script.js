@@ -4,3 +4,28 @@
  */
 
 "use strict";
+
+/*
+* light and dark theme
+*/
+
+
+const $themeBtn = document.querySelector("[data-theme-btn]");
+const $doc = document.documentElement;
+let isDark = window.matchMedia("(prefers-color-schema:dark)").matches;
+console.log(window)
+
+if (sessionStorage.getItem("theme")) {
+    $doc.dataset.theme = sessionStorage.getItem("theme");
+}
+else {
+    $doc.dataset.theme = isDark? "dark":"light";
+    sessionStorage.setItem("theme",$doc.dataset.theme)
+}
+
+const changeTheme = () => {
+    $doc.dataset.theme = sessionStorage.getItem("theme") === "light"?"dark":"light";
+    sessionStorage.setItem("theme",$doc.dataset.theme)
+}
+
+$themeBtn.addEventListener("click",changeTheme);
