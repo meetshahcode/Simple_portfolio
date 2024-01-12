@@ -392,7 +392,7 @@ section-title {margin-block-end: 16px;}
     margin-block-start: 24px;
     margin-inline: 16px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     justify-content: center;
     border-block-end: 1px solid var(--outline-variant);
   }
@@ -601,19 +601,36 @@ section-title {margin-block-end: 16px;}
     border-radius: var(--shape-corner-large);
   }
 
-  .about-card .card-title {
+  .skill-card {
+    background-color: var(--surface-container-low);
+    color: var(--on-surface-variant);
+    margin-inline: 16px;
+    padding: 16px;
+    margin-block-start: 2px;
+    border-radius: var(--shape-corner-large);
+  }
+
+  .about-card .card-title,
+  .skill-card .card-title {
     color: var(--on-surface);
   }
 
-  .about-card .card-text {
+  .about-card .card-text{
     margin-block: 12px;
     padding-block: 12px;
     border-block: 1px solid var(--outline-variant);
   }
 
+  .skill-card .card-title {
+    margin-block-end: 12px;
+    padding-block-end: 12px;
+    border-block-end: 1px solid var(--outline-variant);
+  }
+
   .about-list {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
   }
 
   .list-item {
@@ -764,11 +781,12 @@ responisve for larger then 768px
   .article {
     position: relative;
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
     align-items: flex-start;
   }
   .about-card,
-  .primary-tab {
+  .primary-tab,
+  .skill-card {
     position: static;
     top: 64px;
   }
@@ -785,13 +803,13 @@ responisve for larger then 768px
     max-width: 100%;
     margin-inline: auto;
   }
-  .about-card {margin-inline: 8px;}
+  .about-card,.skill-card {margin-inline: 8px;}
 
 
-  .contact-tab .container{
+  /* .contact-tab .container{
     display: grid;
     align-items: flex-start;
     grid-template-columns: 0.6fr 1fr;
     gap: 24px
-  } 
+  }  */
 }
