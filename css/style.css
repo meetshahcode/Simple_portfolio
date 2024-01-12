@@ -759,7 +759,7 @@ section-title {margin-block-end: 16px;}
 responisve for larger then 768px
 */
 
-@media (min-width:768px) {
+@media (min-width:828px) {
 
   .article {
     position: relative;
